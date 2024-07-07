@@ -66,9 +66,9 @@ void main() {
             ptr++;
         }
         else {
-            for (int j = 0; j <= i; j++){
+            /* for (int j = 0; j <= i; j++){
                 if (p[j].cp_bt < p[])
-            }
+            } */
         }
     }
 }
