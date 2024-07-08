@@ -1,3 +1,6 @@
+// ERROR : Code will not run in vs code because sys/ipc and sys/shm arent recognised
+// Code works
+
 #include<sys/ipc.h>
 #include<sys/shm.h>
 #include<unistd.h>
