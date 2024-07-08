@@ -10,6 +10,7 @@ i/o system calls
 scheduling
     fcfs
     sjf
+    srtf
     priority
     round robin
 
@@ -32,3 +33,14 @@ disk scheduling
 file allocation
 
 
+
+left over to learn
+
+- priority pre emptive
+- priority non pre emptive
+- srtf
+- page replacement (lru, lfu)
+- disk allocation
+- file allocation
+- initial experiments
+- semaphore and ipc
