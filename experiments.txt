@@ -1,8 +1,34 @@
+unix commands
+
+shell programming
+
+linux system calls
+
+i/o system calls
+
 - exp 5
 scheduling
     fcfs
     sjf
     priority
     round robin
+
+inter process communication
+
+producer consumer problem
+
+dining philosopher problem
+
+bankers algorithm
+
+memory allocation
+
+page replacement
+
+disk scheduling
+
+deadlock detection
+
+file allocation
 
 
