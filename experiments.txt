@@ -21,13 +21,13 @@ dining philosopher problem
 
 bankers algorithm
 
+deadlock detection
+
 memory allocation
 
 page replacement
 
 disk scheduling
-
-deadlock detection
 
 file allocation
 
