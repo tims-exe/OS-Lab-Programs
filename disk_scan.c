@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 void main() {
     int cySize, prePos, currPos, queSize, i, ptr, seek = 0;
