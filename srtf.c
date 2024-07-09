@@ -1,74 +1,72 @@
 #include<stdio.h>
 
-struct process {
-    int id, at, bt, ct, tat, wt, cp_bt;
-};
+int i,j,n,flag,totalWT=0,totalTAT=0,proarr[20],noarr[20],ptr=-1;
+int currentTime = 0, completed = 0, shortest = 0, minRemTime = 9999;
 
-void sort(int n, struct process p[n]){
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n-i-1; j++){
-           if (p[j].at > p[j+1].at){
-                struct process temp = p[j];
-                p[j] = p[j+1];
-                p[j+1] = temp;
+struct process{
+    int num,TR;
+    int AT,BT,CT,TAT,WT;
+}pro[10],temp;
+
+void main(){
+    
+    printf("Enter the Number of Process : ");
+    scanf("%d",&n);
+    
+    printf("Enter Arrival Time and Burst Time of each process : \n");
+    for ( i=0 ; i<n ; i++ ){
+        printf("P%d\t",i+1);
+        pro[i].num=(i+1);
+        scanf("%d",&pro[i].AT);
+        scanf("%d",&pro[i].BT);
+        pro[i].TR=pro[i].BT;
+    }
+
+    while (completed != n) {
+        for (int i = 0; i < n; i++){
+            if ((pro[i].AT <= currentTime) && (pro[i].TR<minRemTime) && (pro[i].TR > 0)) {
+                shortest = i;
+                minRemTime = pro[i].TR;
             }
         }
-    }
-}
+ 
+        pro[shortest].TR--;
+        minRemTime = pro[shortest].TR;
 
-void main() {
-    int n, i = 0, ptr = 0, sum = 0;
-
-    printf("Enter number of processes : ");
-    scanf("%d", &n);
-
-    struct process p[n];
-
-    /* printf("Enter Arrival Time and Burst Time for Processes : \n");
-    for (int i = 0; i < n; i++) {
-        printf("P%d : ", i);
-        p[i].id = i;
-        scanf("%d%d", &p[i].at, &p[i].bt);
-        sum += p[i].bt;
-        p[i].cp_bt = p[i].bt;
-    } */
-
-    p[0].id = 0;
-    p[0].at = 0;
-    p[0].bt = 5;
-    p[0].cp_bt = p[0].bt;
-    p[1].id = 1;
-    p[1].at = 2;
-    p[1].bt = 4;
-    p[1].cp_bt = p[1].bt;
-    p[2].id = 2;
-    p[2].at = 3;
-    p[2].bt = 1;
-    p[2].cp_bt = p[2].bt;
-    p[3].id = 3;
-    p[3].at = 5;
-    p[3].bt = 2;
-    p[3].cp_bt = p[3].bt;
-    sum = p[0].bt + p[1].bt + p[2].bt + p[3].bt;
-
-    sort(n, p);
-
-    /* printf("|  P%d  |", p[i].id); */
-    p[i].cp_bt--;
-    ptr++;
-    i++;
-
-    while (ptr <= sum){
-        // arrival time of current process is greater than pointer
-        if (p[i].at > ptr){
-            /* printf("|  P%d  |", p[i-1].id); */
-            p[i-1].cp_bt--;
+               
+        if(proarr[ptr] != shortest || ptr==-1 ){
             ptr++;
+            proarr[ptr]=shortest;
+            noarr[ptr]=currentTime;
         }
-        else {
-            /* for (int j = 0; j <= i; j++){
-                if (p[j].cp_bt < p[])
-            } */
+        else
+            noarr[ptr]++;
+        
+        if (minRemTime == 0)
+            minRemTime = 9999;
+        
+        if (pro[shortest].TR == 0) {
+            completed++;
+            pro[shortest].CT = currentTime + 1;
+            pro[shortest].TAT = pro[shortest].CT - pro[shortest].AT;
+            pro[shortest].WT = pro[shortest].TAT - pro[shortest].BT;
+            totalWT += pro[shortest].WT;
+            totalTAT += pro[shortest].TAT;
         }
+        currentTime++;
     }
+
+    printf("\n\nGANTT CHART \n--------------------------------------------------------\n");
+    for( i=0;i<=ptr;i++)
+        printf("| P%d\t",proarr[i]+1);
+        printf("|\n---------------------------------------------------------------\n%d\t",pro[0].AT);
+    for(i=0;i<=ptr;i++)
+        printf("%d\t",noarr[i]+1);
+        printf("\n %15s %15s %15s %15s %15s%15s","Process","Arrival","Burst","Completion","TurnAround","Waiting");
+        printf("\n-------------------------------------------------------------------------");
+    for ( int i=0 ; i<n ; i++ )
+        printf("\n P%d %13d %15d %15d %15d %15d", pro[i].num,pro[i].AT,pro[i].BT,pro[i].CT,pro[i].TAT,pro[i].WT);
+    
+    printf("\n\n Average Waiting Time : %.2f ms", (float)totalWT/n);
+    printf("\n Average TurnAround Time : %.2f ms", (float)totalTAT/n);
 }
