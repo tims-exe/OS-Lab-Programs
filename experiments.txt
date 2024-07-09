@@ -1,4 +1,4 @@
-imp 
+imp (write algorithms for each to understand clearly)
 - srtf
 - file_indexed
 - page replacement
