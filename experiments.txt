@@ -1,3 +1,10 @@
+imp 
+- srtf
+- file_indexed
+- page replacement
+- memory allocation
+
+
 unix commands
 
 shell programming
@@ -41,6 +48,7 @@ left over to learn
 - srtf
 # page replacement (lru, lfu)
 # disk allocation
-- file allocation
-- initial experiments
+# file allocation
+# shell programming
+- system calls and io
 - semaphore and ipc
