@@ -40,7 +40,7 @@ left over to learn
 - priority non pre emptive
 - srtf
 # page replacement (lru, lfu)
-- disk allocation
+# disk allocation
 - file allocation
 - initial experiments
 - semaphore and ipc
