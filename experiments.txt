@@ -39,7 +39,7 @@ left over to learn
 - priority pre emptive
 - priority non pre emptive
 - srtf
-- page replacement (lru, lfu)
+# page replacement (lru, lfu)
 - disk allocation
 - file allocation
 - initial experiments
