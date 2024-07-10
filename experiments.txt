@@ -1,6 +1,6 @@
 imp (write algorithms for each to understand clearly)
 - srtf
-- file_indexed
+- file_linked
 - page replacement
 - memory allocation
 
@@ -38,17 +38,3 @@ page replacement
 disk scheduling
 
 file allocation
-
-
-
-left over to learn
-
-- priority pre emptive
-- priority non pre emptive
-- srtf
-# page replacement (lru, lfu)
-# disk allocation
-# file allocation
-# shell programming
-- system calls and io
-- semaphore and ipc
